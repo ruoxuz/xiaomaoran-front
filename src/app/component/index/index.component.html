@@ -1,0 +1,9 @@
+<div>
+  <div id="content">
+    <mat-card *ngFor="let article of articles" class="card" routerLink="/article">
+      <h2>{{article.title}}</h2>
+      <p>{{article.content}}</p>
+      <div>{{article.createTime}}</div>
+    </mat-card>
+  </div>
+</div>
