@@ -1,6 +1,6 @@
 <div>
   <div id="content">
-    <mat-card *ngFor="let article of articles" class="card" routerLink="/article">
+    <mat-card *ngFor="let article of articles" class="card" routerLink="/article/{{article.uuid}}">
       <h2>{{article.title}}</h2>
       <p>{{article.content}}</p>
       <div>{{article.createTime}}</div>

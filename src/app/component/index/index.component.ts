@@ -17,7 +17,7 @@ export class IndexComponent implements OnInit {
   }
 
   getArticles(): void {
-    this.articleService.getArticle()
+    this.articleService.getArticles()
       .subscribe(articles => this.articles = articles);
   }
 

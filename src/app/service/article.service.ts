@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Article} from "../model/article";
 
@@ -7,11 +7,17 @@ import {Article} from "../model/article";
   providedIn: 'root'
 })
 export class ArticleService {
-  private articleUrl = 'http://localhost:8080/getArticles';
+  private getArticlesUrl = 'http://localhost:8080/getArticles';
+  private getArticleUrl = 'http://localhost:8080/getArticle';
 
   constructor(private http: HttpClient) { }
 
-  getArticle(): Observable<Article[]> {
-    return this.http.get<Article[]>(this.articleUrl)
+  getArticles(): Observable<Article[]> {
+    return this.http.get<Article[]>(this.getArticlesUrl)
+  }
+
+  getArticle(uuid: string): Observable<Article> {
+    const url = `${this.getArticleUrl}/${uuid}`;
+    return this.http.get<Article>(url)
   }
 }
