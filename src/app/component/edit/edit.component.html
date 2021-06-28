@@ -1,1 +1,10 @@
-<p>edit works!</p>
+<div>
+  <div fxLayout="row" id="content">
+    <div fxFlex="50%">
+      <textarea [(ngModel)]="md" cols="30" rows="50" style="width: 100%"></textarea>
+    </div>
+    <div fxFlex="50%">
+      <div [innerHTML]="md | marked" style="padding: 10px"></div>
+    </div>
+  </div>
+</div>
