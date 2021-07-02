@@ -1,9 +1,10 @@
-<div>
-  <div id="content">
-    <mat-card *ngFor="let article of articles" class="card" routerLink="/article/{{article.uuid}}">
+<div id="container" fxLayout="row" fxLayoutAlign="center">
+  <div fxFlex="50%" fxFlex.xs="95%" fxFlex.sm="90%" fxFlex.md="80%" fxFlex.lg="70%" fxLayout="column" fxLayoutGap="20px">
+    <mat-card *ngFor="let article of articles" class="card" routerLink="/article/{{article.uuid}}" fxLayoutGap="10px">
       <h2>{{article.title}}</h2>
       <p>{{article.content}}</p>
       <div>{{article.createTime}}</div>
     </mat-card>
   </div>
 </div>
+

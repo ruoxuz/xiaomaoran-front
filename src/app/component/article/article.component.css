@@ -1,4 +1,3 @@
-#content {
-  width: 1000px;
-  margin: 65px auto;
+#container {
+  min-height: 100vh;
 }

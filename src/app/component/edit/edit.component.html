@@ -1,10 +1,13 @@
-<div>
-  <div fxLayout="row" id="content">
-    <div fxFlex="50%">
-      <textarea [(ngModel)]="md" cols="30" rows="50" style="width: 100%"></textarea>
+<div id="container" fxLayout="row">
+  <div fxFlex="50%" fxLayoutAlign="center">
+    <div id="editor" fxFlex="90%">
+      <textarea [(ngModel)]="md" id="textarea"></textarea>
     </div>
-    <div fxFlex="50%">
+  </div>
+  <div fxFlex="50%" fxLayoutAlign="center">
+    <div id="previewer" fxFlex="90%">
       <div [innerHTML]="md | marked" style="padding: 10px"></div>
     </div>
   </div>
 </div>
+
