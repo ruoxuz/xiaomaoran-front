@@ -15,3 +15,7 @@
 #previewer {
   background-color: beige;
 }
+
+#content {
+  min-height: 100vh;
+}

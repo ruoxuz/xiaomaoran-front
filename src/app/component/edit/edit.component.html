@@ -1,12 +1,26 @@
-<div id="container" fxLayout="row">
-  <div fxFlex="50%" fxLayoutAlign="center">
-    <div id="editor" fxFlex="90%">
-      <textarea [(ngModel)]="md" id="textarea"></textarea>
+<div id="container" fxLayout="column">
+  <div>
+    <mat-form-field fxFlex="50%" appearance="fill">
+      <mat-label>Title</mat-label>
+      <input matInput placeholder="Ex. Title" [(ngModel)]="title" required>
+    </mat-form-field>
+    <div fxLayoutAlign="space-around" fxFlex="50%">
+      <mat-slide-toggle [(ngModel)]="personal">公开：{{personal}}</mat-slide-toggle>
+      <div>
+        <button mat-raised-button color="primary" (click)="saveArticle()">Submit</button>
+      </div>
     </div>
   </div>
-  <div fxFlex="50%" fxLayoutAlign="center">
-    <div id="previewer" fxFlex="90%">
-      <div [innerHTML]="md | marked" style="padding: 10px"></div>
+  <div id="content" fxLayout="row">
+    <div fxFlex="50%" fxLayoutAlign="center">
+      <div id="editor" fxFlex="90%">
+        <textarea [(ngModel)]="content" id="textarea" required="required"></textarea>
+      </div>
+    </div>
+    <div fxFlex="50%" fxLayoutAlign="center">
+      <div id="previewer" fxFlex="90%">
+        <div [innerHTML]="content | marked" style="padding: 10px"></div>
+      </div>
     </div>
   </div>
 </div>

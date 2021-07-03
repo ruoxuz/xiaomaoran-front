@@ -13,11 +13,11 @@ export class IndexComponent implements OnInit {
   constructor(private articleService: ArticleService) { }
 
   ngOnInit(): void {
-    this.getArticles();
+    this.getArticleList();
   }
 
-  getArticles(): void {
-    this.articleService.getArticles()
+  getArticleList(): void {
+    this.articleService.getArticleList()
       .subscribe(articles => this.articles = articles);
   }
 
