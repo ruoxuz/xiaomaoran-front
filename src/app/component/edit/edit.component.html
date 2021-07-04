@@ -1,10 +1,35 @@
 <div id="container" fxLayout="column">
   <div>
-    <mat-form-field fxFlex="50%" appearance="fill">
-      <mat-label>Title</mat-label>
-      <input matInput placeholder="Ex. Title" [(ngModel)]="title" required>
-    </mat-form-field>
-    <div fxLayoutAlign="space-around" fxFlex="50%">
+    <div fxFlex="50%">
+      <mat-form-field fxFlex="100%" appearance="fill">
+        <mat-label>Title</mat-label>
+        <input matInput placeholder="Ex. Title" [(ngModel)]="title" required>
+      </mat-form-field>
+    </div>
+    <div fxFlex="30%">
+      <mat-form-field fxFlex="100%" appearance="fill">
+        <mat-label>Tag</mat-label>
+        <mat-chip-list #tagList>
+          <mat-chip *ngFor="let tag of tags" [removable]="removable" (removed)="removeTag(tag)">
+            {{tag.name}}
+            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+          </mat-chip>
+          <input placeholder="New tag..."
+                 [formControl]="tagCtrl"
+                 [autocomplete]="auto"
+                 [matChipInputFor]="tagList"
+                 [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                 [matChipInputAddOnBlur]="addOnBlur"
+                 (matChipInputTokenEnd)="addTag($event)">
+        </mat-chip-list>
+        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+          <mat-option *ngFor="let tag of filteredTags | async" [value]="tag">
+            {{tag}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </div>
+    <div fxLayoutAlign="space-around" fxFlex="20%">
       <mat-slide-toggle [(ngModel)]="personal">公开：{{personal}}</mat-slide-toggle>
       <div>
         <button mat-raised-button color="primary" (click)="saveArticle()">Submit</button>
