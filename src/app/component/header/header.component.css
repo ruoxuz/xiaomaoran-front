@@ -1,3 +1,8 @@
-#container {
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
   background-color: darkgray;
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.5);
 }

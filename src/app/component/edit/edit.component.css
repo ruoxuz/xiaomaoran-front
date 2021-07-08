@@ -19,3 +19,8 @@
 #content {
   min-height: 100vh;
 }
+
+.margin-top {
+  margin-top: 50px;
+}
+
