@@ -4,11 +4,13 @@ import {IndexComponent} from "./component/index/index.component";
 import {LoginComponent} from "./component/login/login.component";
 import {ArticleComponent} from "./component/article/article.component";
 import {EditComponent} from "./component/edit/edit.component";
+import {RegisterComponent} from "./component/register/register.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/index', pathMatch: 'full' },
   { path: 'index', component: IndexComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   { path: 'article/:uuid', component: ArticleComponent },
   { path: 'edit', component: EditComponent },
 ];

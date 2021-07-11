@@ -22,6 +22,7 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {MatIconModule} from "@angular/material/icon";
 import {MatChipsModule} from "@angular/material/chips";
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
+import { RegisterComponent } from './component/register/register.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import {MatAutocompleteModule} from "@angular/material/autocomplete";
     IndexComponent,
     HeaderComponent,
     FooterComponent,
-    MarkedPipe
+    MarkedPipe,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

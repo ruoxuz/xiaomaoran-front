@@ -1,0 +1,27 @@
+<div id="container" fxLayout="row" fxLayoutAlign="center">
+  <div class="margin-top" fxFlex="30%" fxFlex.xs="95%" fxFlex.sm="90%" fxFlex.md="40%" fxFlex.lg="30%" fxLayout="column" fxLayoutGap="20px">
+    <form>
+      <mat-form-field fxLayout="row">
+        <mat-label>name</mat-label>
+        <input matInput required>
+      </mat-form-field>
+      <mat-form-field fxLayout="row">
+        <mat-label>username</mat-label>
+        <input matInput required>
+      </mat-form-field>
+      <mat-form-field fxLayout="row">
+        <mat-label>email</mat-label>
+        <input matInput required>
+      </mat-form-field>
+      <mat-form-field fxLayout="row">
+        <mat-label>password</mat-label>
+        <input matInput [type]="hidePassword ? 'password' : 'text'" required>
+        <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword">
+          <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+      <button mat-raised-button color="primary">register</button>
+    </form>
+  </div>
+</div>
+
