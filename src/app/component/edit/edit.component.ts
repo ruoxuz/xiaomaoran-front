@@ -20,8 +20,8 @@ export class EditComponent implements OnInit {
   title: string = '';
   content: string = '';
   personal: boolean = false;
-
   tags: Tag[] = [];
+
   removable = true;
   addOnBlur = true;
   readonly separatorKeysCodes = [ENTER, COMMA] as const;

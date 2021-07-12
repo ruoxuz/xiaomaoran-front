@@ -1,26 +1,27 @@
 <div id="container" fxLayout="row" fxLayoutAlign="center">
   <div class="margin-top" fxFlex="30%" fxFlex.xs="95%" fxFlex.sm="90%" fxFlex.md="40%" fxFlex.lg="30%" fxLayout="column" fxLayoutGap="20px">
-    <form>
-      <mat-form-field fxLayout="row">
+    <form fxLayout="column">
+      <mat-form-field>
         <mat-label>name</mat-label>
-        <input matInput required>
+        <input matInput name="name" [(ngModel)]="form.name" required>
       </mat-form-field>
-      <mat-form-field fxLayout="row">
+      <mat-form-field>
         <mat-label>username</mat-label>
-        <input matInput required>
+        <input matInput name="username" [(ngModel)]="form.username" required>
       </mat-form-field>
-      <mat-form-field fxLayout="row">
+      <mat-form-field>
         <mat-label>email</mat-label>
-        <input matInput required>
+        <input matInput name="email" [(ngModel)]="form.email" required>
       </mat-form-field>
-      <mat-form-field fxLayout="row">
+      <mat-form-field>
         <mat-label>password</mat-label>
-        <input matInput [type]="hidePassword ? 'password' : 'text'" required>
+        <input matInput [type]="hidePassword ? 'password' : 'text'" name="password" [(ngModel)]="form.password" required minlength="6">
+        <mat-error></mat-error>
         <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword">
           <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
       </mat-form-field>
-      <button mat-raised-button color="primary">register</button>
+      <button mat-raised-button color="primary" (click)="signup()">register</button>
     </form>
   </div>
 </div>
