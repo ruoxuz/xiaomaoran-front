@@ -1,11 +1,10 @@
-export class SignupInfo {
-  name: string;
+export class User {
   username: string;
   email: string;
   password: string;
+  authData?: string
 
-  constructor(name: string, username: string, email: string, password: string) {
-    this.name = name;
+  constructor(username: string, email: string, password: string) {
     this.username = username;
     this.email = email;
     this.password = password;

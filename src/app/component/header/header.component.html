@@ -10,14 +10,23 @@
       </a>
     </div>
     <div fxFlexOffset="auto">
-      <a *ngIf="router.url !== '/edit'" routerLink="/edit">
+      <button mat-icon-button *ngIf="router.url !== '/edit'" routerLink="/edit">
         <mat-icon>create</mat-icon>
-      </a>
+      </button>
     </div>
     <div>
-      <a routerLink="/register">
+      <button mat-icon-button [matMenuTriggerFor]="menu">
         <mat-icon>face</mat-icon>
-      </a>
+      </button>
+      <mat-menu #menu>
+        <div *ngIf="isLoggedIn()">
+          <button mat-menu-item (click)="logout()">登出</button>
+        </div>
+        <div *ngIf="!isLoggedIn()">
+          <button mat-menu-item routerLink="/login">登录</button>
+          <button mat-menu-item routerLink="/register">注册</button>
+        </div>
+      </mat-menu>
     </div>
   </div>
 </header>

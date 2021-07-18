@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import {ArticleService} from "../../service/article.service";
-import {Article} from "../../model/article";
+import {ArticleService} from "../../services/article.service";
+import {Article} from "../../models/article";
 import {COMMA, ENTER} from "@angular/cdk/keycodes";
 import {MatChipInputEvent} from "@angular/material/chips";
-import {Tag} from "../../model/tag";
+import {Tag} from "../../models/tag";
 import {MatAutocompleteSelectedEvent} from "@angular/material/autocomplete";
 import {FormControl} from "@angular/forms";
 import {Observable} from "rxjs";
 import {map, startWith} from "rxjs/operators";
-import {TagService} from "../../service/tag.service";
+import {TagService} from "../../services/tag.service";
 
 @Component({
   selector: 'app-edit',

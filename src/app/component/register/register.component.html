@@ -1,27 +1,26 @@
 <div id="container" fxLayout="row" fxLayoutAlign="center">
   <div class="margin-top" fxFlex="30%" fxFlex.xs="95%" fxFlex.sm="90%" fxFlex.md="40%" fxFlex.lg="30%" fxLayout="column" fxLayoutGap="20px">
-    <form fxLayout="column">
+    <form fxLayout="column" #f="ngForm" (ngSubmit)="f.form.valid && signup()" novalidate>
       <mat-form-field>
-        <mat-label>name</mat-label>
-        <input matInput name="name" [(ngModel)]="form.name" required>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>username</mat-label>
-        <input matInput name="username" [(ngModel)]="form.username" required>
+        <mat-label>用户名</mat-label>
+        <input matInput name="username" [(ngModel)]="form.username" #username="ngModel" required>
+        <mat-error *ngIf="username.errors?.required">必填</mat-error>
       </mat-form-field>
       <mat-form-field>
         <mat-label>email</mat-label>
-        <input matInput name="email" [(ngModel)]="form.email" required>
+        <input matInput name="email" [(ngModel)]="form.email" #email="ngModel" required>
+        <mat-error *ngIf="email.errors?.required">必填</mat-error>
       </mat-form-field>
       <mat-form-field>
-        <mat-label>password</mat-label>
-        <input matInput [type]="hidePassword ? 'password' : 'text'" name="password" [(ngModel)]="form.password" required minlength="6">
-        <mat-error></mat-error>
+        <mat-label>密码</mat-label>
+        <input matInput [type]="hidePassword ? 'password' : 'text'" name="password" [(ngModel)]="form.password" #password="ngModel" required minlength="6">
+        <mat-error *ngIf="password.errors?.required">必填</mat-error>
+        <mat-error *ngIf="password.errors?.minlength">密码至少6个字符</mat-error>
         <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword">
           <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
       </mat-form-field>
-      <button mat-raised-button color="primary" (click)="signup()">register</button>
+      <button mat-raised-button color="primary" type="submit">注册</button>
     </form>
   </div>
 </div>

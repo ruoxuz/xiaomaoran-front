@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthService} from "../../service/auth.service";
-import {SignupInfo} from "../../model/signup-info";
+import {AuthService} from "../../services/auth.service";
+import {User} from "../../models/user";
 
 @Component({
   selector: 'app-register',
@@ -11,7 +11,7 @@ export class RegisterComponent implements OnInit {
   hidePassword = true;
 
   form: any = {};
-  signupInfo!: SignupInfo;
+  signupInfo!: User;
 
   constructor(private authService: AuthService) { }
 
@@ -19,8 +19,7 @@ export class RegisterComponent implements OnInit {
   }
 
   signup(): void {
-    this.signupInfo = new SignupInfo(
-      this.form.name,
+    this.signupInfo = new User(
       this.form.username,
       this.form.email,
       this.form.password
