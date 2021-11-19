@@ -15,10 +15,13 @@
         <a class="mx-2 d-none d-md-inline" href="/contact">Contact</a>
       </div>
       <div class="col-6 col-md-2 row justify-content-end">
-        <button mat-icon-button *ngIf="router.url !== '/edit'" routerLink="/edit">
+        <a href="#" class="burger mx-5 d-inline d-md-none align-self-center" data-bs-toggle="collapse" data-bs-target="#main-navbar">
+          <span></span>
+        </a>
+        <button class="d-none d-md-inline" mat-icon-button *ngIf="router.url !== '/edit'" routerLink="/edit">
           <mat-icon>create</mat-icon>
         </button>
-        <button class="mx-4" mat-icon-button [matMenuTriggerFor]="menu">
+        <button class="mx-4 d-none d-md-inline" mat-icon-button [matMenuTriggerFor]="menu">
           <mat-icon>face</mat-icon>
         </button>
         <mat-menu #menu>
@@ -31,6 +34,33 @@
           </div>
         </mat-menu>
       </div>
+    </div>
+  </div>
+  <div class="collapse navbar-collapse custom-navmenu" id="main-navbar">
+    <div class="container py-2 py-md-5">
+      <div class="row align-items-start">
+        <div class="col-md-2">
+          <ul class="custom-menu">
+            <li class="my-2"><a href="/index">Home</a></li>
+            <li class="my-2"><a href="/about">About</a></li>
+            <li class="my-2"><a href="/article">Works</a></li>
+            <li class="active my-2"><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-md-6 d-none d-md-block  mr-auto">
+          <div class="tweet d-flex">
+            <span class="bi bi-twitter text-white mt-2 mr-3"></span>
+            <div>
+              <p><em>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt ut officiis explicabo inventore. <br> <a href="#">t.co/v82jsk</a></em></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 d-none d-md-block">
+          <h3>Hire Me</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt ut officiisexplicabo inventore. <br> <a href="#">myemail@gmail.com</a></p>
+        </div>
+      </div>
+
     </div>
   </div>
 </header>
