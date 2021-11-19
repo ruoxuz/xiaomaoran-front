@@ -6,14 +6,20 @@ import {ArticleComponent} from "./component/article/article.component";
 import {EditComponent} from "./component/edit/edit.component";
 import {RegisterComponent} from "./component/register/register.component";
 import {AuthGuard} from "./helpers/auth.guard";
+import {ArticleDetailComponent} from "./component/article-detail/article-detail.component";
+import {AboutComponent} from "./component/about/about.component";
+import {ContactComponent} from "./component/contact/contact.component";
 
 const routes: Routes = [
-  { path: '', redirectTo: '/index', pathMatch: 'full' },
+  { path: '', component: IndexComponent },
   { path: 'index', component: IndexComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'article/:uuid', component: ArticleComponent },
+  { path: 'article', component: ArticleComponent },
+  { path: 'article/detail', component: ArticleDetailComponent},
   { path: 'edit', component: EditComponent, canActivate: [AuthGuard] },
+  { path: 'about', component: AboutComponent },
+  { path: 'contact', component: ContactComponent },
 ];
 
 @NgModule({

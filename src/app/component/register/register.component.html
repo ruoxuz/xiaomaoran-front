@@ -1,27 +1,58 @@
-<div id="container" fxLayout="row" fxLayoutAlign="center">
-  <div class="margin-top" fxFlex="30%" fxFlex.xs="95%" fxFlex.sm="90%" fxFlex.md="40%" fxFlex.lg="30%" fxLayout="column" fxLayoutGap="20px">
-    <form fxLayout="column" #f="ngForm" (ngSubmit)="f.form.valid && signup()" novalidate>
-      <mat-form-field>
-        <mat-label>用户名</mat-label>
-        <input matInput name="username" [(ngModel)]="form.username" #username="ngModel" required>
-        <mat-error *ngIf="username.errors?.required">必填</mat-error>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>email</mat-label>
-        <input matInput name="email" [(ngModel)]="form.email" #email="ngModel" required>
-        <mat-error *ngIf="email.errors?.required">必填</mat-error>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>密码</mat-label>
-        <input matInput [type]="hidePassword ? 'password' : 'text'" name="password" [(ngModel)]="form.password" #password="ngModel" required minlength="6">
-        <mat-error *ngIf="password.errors?.required">必填</mat-error>
-        <mat-error *ngIf="password.errors?.minlength">密码至少6个字符</mat-error>
-        <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword">
-          <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
-        </button>
-      </mat-form-field>
-      <button mat-raised-button color="primary" type="submit">注册</button>
-    </form>
-  </div>
-</div>
+<main id="main">
+
+  <section class="section">
+    <div class="container" fxLayoutAlign="center">
+
+      <div class="margin-auto">
+        <div class="row mb-5 justify-content-center">
+          <div class="col-md-6" data-aos="fade-up">
+            <h2 class="text-center">Signup</h2>
+          </div>
+
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-md-6 mb-5 mb-md-0" data-aos="fade-up">
+
+            <form #f="ngForm" (ngSubmit)="f.form.valid && signup()" class="php-email-form">
+
+              <div class="row gy-3">
+                <div class="col-md-12 form-group">
+                  <label for="username">昵称</label>
+                  <input matInput class="form-control" name="username" id="username" [(ngModel)]="form.username" #username="ngModel" required>
+                  <mat-error *ngIf="username.errors?.required">必填</mat-error>
+                </div>
+                <div class="col-md-12 form-group">
+                  <label for="email">昵称</label>
+                  <input matInput class="form-control" name="email" id="email" [(ngModel)]="form.email" #email="ngModel" required>
+                  <mat-error *ngIf="email.errors?.required">必填</mat-error>
+                </div>
+                <div class="col-md-12 form-group">
+                  <label for="password">Password</label>
+                  <input matInput class="form-control" [type]="hidePassword ? 'password' : 'text'" name="password" id="password" [(ngModel)]="form.password" #password="ngModel" required minlength="6">
+                  <mat-error *ngIf="password.errors?.required">必填</mat-error>
+                  <mat-error *ngIf="password.errors?.minlength">密码至少6个字符</mat-error>
+                </div>
+
+                <div class="col-md-6 my-4 form-group">
+                  <input type="submit" class="readmore d-block w-100" value="注册">
+                </div>
+                <div class="col-md-6 my-4 form-group">
+                  <input type="button" routerLink="/login" class="readmore d-block w-100" value="登录">
+                </div>
+              </div>
+
+            </form>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+</main><!-- End #main -->
+
 

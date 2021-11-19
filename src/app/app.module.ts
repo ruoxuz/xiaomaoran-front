@@ -25,6 +25,9 @@ import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import { RegisterComponent } from './component/register/register.component';
 import {MatMenuModule} from "@angular/material/menu";
 import {AuthInterceptor} from "./helpers/auth.interceptor";
+import { ArticleDetailComponent } from './component/article-detail/article-detail.component';
+import { AboutComponent } from './component/about/about.component';
+import { ContactComponent } from './component/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +39,10 @@ import {AuthInterceptor} from "./helpers/auth.interceptor";
     HeaderComponent,
     FooterComponent,
     MarkedPipe,
-    RegisterComponent
+    RegisterComponent,
+    ArticleDetailComponent,
+    AboutComponent,
+    ContactComponent
   ],
     imports: [
         BrowserModule,

@@ -1,21 +1,51 @@
-<div id="container" fxLayout="row" fxLayoutAlign="center">
-  <div class="margin-top" fxLayout="column" fxFlex="30%">
-    <form fxLayout="column" [formGroup]="loginForm" (ngSubmit)="login()">
-      <mat-form-field>
-        <mat-label>用户名</mat-label>
-        <input matInput name="username" formControlName="username">
-        <mat-error *ngIf="f.username.errors?.required">必填</mat-error>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>密码</mat-label>
-        <input matInput [type]="hidePassword ? 'password' : 'text'" name="password" formControlName="password">
-        <mat-error *ngIf="f.password.errors?.required">必填</mat-error>
-        <mat-error *ngIf="f.password.errors?.minlength">密码至少6个字符</mat-error>
-        <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword">
-          <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
-        </button>
-      </mat-form-field>
-      <button mat-raised-button color="primary" type="submit">登录</button>
-    </form>
-  </div>
-</div>
+<main id="main">
+
+  <section class="section">
+    <div class="container" fxLayoutAlign="center">
+
+      <div class="margin-auto">
+        <div class="row mb-5 justify-content-center">
+          <div class="col-md-6" data-aos="fade-up">
+            <h2 class="text-center">Login</h2>
+          </div>
+
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-md-6 mb-5 mb-md-0" data-aos="fade-up">
+
+            <form [formGroup]="loginForm" (ngSubmit)="login()" class="php-email-form">
+
+              <div class="row gy-3">
+                <div class="col-md-12 form-group">
+                  <label for="email">Email</label>
+                  <input type="text" class="form-control" name="username" id="email" formControlName="username" required>
+                  <mat-error *ngIf="f.username.errors?.required">必填</mat-error>
+                </div>
+                <div class="col-md-12 form-group">
+                  <label for="password">Password</label>
+                  <input type="password" class="form-control" name="subject" id="password" formControlName="password" required>
+                  <mat-error *ngIf="f.password.errors?.required">必填</mat-error>
+                  <mat-error *ngIf="f.password.errors?.minlength">密码至少6个字符</mat-error>
+                </div>
+
+                <div class="col-md-6 my-4 form-group">
+                  <input type="button" routerLink="/register" class="readmore d-block w-100" value="注册">
+                </div>
+                <div class="col-md-6 my-4 form-group">
+                  <input type="submit" class="readmore d-block w-100" value="登录">
+                </div>
+              </div>
+
+            </form>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+</main><!-- End #main -->
