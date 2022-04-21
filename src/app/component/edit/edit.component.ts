@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import {ArticleService} from "../../services/article.service";
-import {Article} from "../../models/article";
+import {ArticleService} from "../../service/article.service";
+import {Article} from "../../model/article";
 import {COMMA, ENTER} from "@angular/cdk/keycodes";
 import {MatChipInputEvent} from "@angular/material/chips";
-import {Tag} from "../../models/tag";
+import {Attribute} from "../../model/attribute";
 import {MatAutocompleteSelectedEvent} from "@angular/material/autocomplete";
 import {FormControl} from "@angular/forms";
 import {Observable} from "rxjs";
 import {map, startWith} from "rxjs/operators";
-import {TagService} from "../../services/tag.service";
+import {TagService} from "../../service/tag.service";
 
 @Component({
   selector: 'app-edit',
@@ -20,7 +20,7 @@ export class EditComponent implements OnInit {
   title: string = '';
   content: string = '';
   personal: boolean = false;
-  tags: Tag[] = [];
+  tags: Attribute[] = [];
 
   removable = true;
   addOnBlur = true;
@@ -71,7 +71,7 @@ export class EditComponent implements OnInit {
     event.chipInput!.clear();
   }
 
-  removeTag(tag: Tag): void {
+  removeTag(tag: Attribute): void {
     const index = this.tags.indexOf(tag);
     if (index >= 0) {
       this.tags.splice(index, 1);

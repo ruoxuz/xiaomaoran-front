@@ -5,7 +5,7 @@ import {LoginComponent} from "./component/login/login.component";
 import {ArticleComponent} from "./component/article/article.component";
 import {EditComponent} from "./component/edit/edit.component";
 import {RegisterComponent} from "./component/register/register.component";
-import {AuthGuard} from "./helpers/auth.guard";
+import {AuthGuard} from "./helper/auth.guard";
 import {ArticleDetailComponent} from "./component/article-detail/article-detail.component";
 import {AboutComponent} from "./component/about/about.component";
 import {ContactComponent} from "./component/contact/contact.component";

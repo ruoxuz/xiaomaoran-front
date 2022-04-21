@@ -8,7 +8,7 @@
     </div>
     <div fxFlex="30%">
       <mat-form-field fxFlex="100%" appearance="fill">
-        <mat-label>Tag</mat-label>
+        <mat-label>Attribute</mat-label>
         <mat-chip-list #tagList>
           <mat-chip *ngFor="let tag of tags" [removable]="removable" (removed)="removeTag(tag)">
             {{tag.name}}

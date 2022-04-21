@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Tag} from "../models/tag";
+import {Attribute} from "../model/attribute";
 import {Observable} from "rxjs";
 
 @Injectable({
@@ -16,11 +16,11 @@ export class TagService {
 
   constructor(private http: HttpClient) { }
 
-  getAllTags(): Observable<Tag[]> {
-    return this.http.get<Tag[]>(this.getTagsUrl);
+  getAllTags(): Observable<Attribute[]> {
+    return this.http.get<Attribute[]>(this.getTagsUrl);
   }
 
-  addTag(tag: Tag): Observable<Tag> {
-    return this.http.post<Tag>(this.addTagUrl, tag, this.httpOptions);
+  addTag(tag: Attribute): Observable<Attribute> {
+    return this.http.post<Attribute>(this.addTagUrl, tag, this.httpOptions);
   }
 }

@@ -1,15 +1,15 @@
-import {Tag} from "./tag";
+import {Attribute} from "./attribute";
 
 export class Article {
   uuid: string;
   title: string;
   content: string;
   personal: boolean;
-  tags: Tag[];
+  tags: Attribute[];
   createTime: string;
   updateTime: string;
 
-  constructor(uuid: string, title: string, content: string, personal: boolean, tags: Tag[], createTime: string, updateTime: string) {
+  constructor(uuid: string, title: string, content: string, personal: boolean, tags: Attribute[], createTime: string, updateTime: string) {
     this.uuid = uuid;
     this.title = title;
     this.content = content;

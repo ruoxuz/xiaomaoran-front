@@ -1,4 +1,4 @@
-export class Tag {
+export class Attribute {
   name: string;
 
   constructor(name: string) {
