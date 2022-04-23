@@ -50,4 +50,14 @@ export class AuthService {
   public get userValue(): User | null | undefined {
     return this.userSubject?.value;
   }
+
+  tokenExpired(token: string | undefined): boolean {
+    if (token !== undefined) {
+      const expiry = (JSON.parse(atob(token.split('.')[1]))).exp;
+      return (Math.floor((new Date()).getTime() / 1000)) >= expiry;
+    } else {
+      return true;
+    }
+
+  }
 }

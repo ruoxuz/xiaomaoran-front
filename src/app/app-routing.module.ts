@@ -11,10 +11,12 @@ import {AboutComponent} from "./component/about/about.component";
 import {ContactComponent} from "./component/contact/contact.component";
 
 const routes: Routes = [
+  // { path: '', redirectTo: '/index', pathMatch: 'full' },
   { path: '', component: IndexComponent },
   { path: 'index', component: IndexComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'article/:uuid', component: ArticleComponent },
   { path: 'article', component: ArticleComponent },
   { path: 'article/detail', component: ArticleDetailComponent},
   { path: 'edit', component: EditComponent, canActivate: [AuthGuard] },
