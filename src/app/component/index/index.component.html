@@ -11,7 +11,7 @@
         <div class="col-md-12 col-lg-6 text-start text-lg-end" data-aos="fade-up" data-aos-delay="100">
           <div id="filters" class="filters">
             <a href="#" data-filter="*" class="active">All</a>
-            <a href="#" data-filter=".web">Java</a>
+            <a href="#" data-filter=".java">Java</a>
             <a href="#" data-filter=".design">Angular</a>
             <a href="#" data-filter=".branding">Spring</a>
             <a href="#" data-filter=".photography">Linux</a>
@@ -19,10 +19,10 @@
         </div>
       </div>
       <div id="portfolio-grid" class="row no-gutter" data-aos="fade-up" data-aos-delay="200">
-        <div *ngFor="let atricle of articles" class="item web col-sm-6 col-md-4 col-lg-4 mb-4">
+        <div *ngFor="let article of articles" class="item java col-sm-6 col-md-4 col-lg-4 mb-4">
           <a routerLink="/article/detail" class="item-wrap fancybox">
             <div class="work-info">
-              <h3>{{atricle.title}}</h3>
+              <h3>{{article.title}}</h3>
               <span>Web</span>
             </div>
             <img class="img-fluid" src="assets/img/img_1.jpg">
