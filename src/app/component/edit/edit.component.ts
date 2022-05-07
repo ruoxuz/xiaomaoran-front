@@ -86,4 +86,8 @@ export class EditComponent implements OnInit {
     const filterValue = value.toLowerCase();
     return this.allTags.filter(tag => tag.toLowerCase().includes(filterValue));
   }
+
+  public get width() {
+    return window.innerWidth;
+  }
 }

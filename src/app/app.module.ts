@@ -28,6 +28,7 @@ import {AuthInterceptor} from "./helper/auth.interceptor";
 import { ArticleDetailComponent } from './component/article-detail/article-detail.component';
 import { AboutComponent } from './component/about/about.component';
 import { ContactComponent } from './component/contact/contact.component';
+import {SplitterModule} from "primeng/splitter";
 
 @NgModule({
   declarations: [
@@ -44,24 +45,25 @@ import { ContactComponent } from './component/contact/contact.component';
     AboutComponent,
     ContactComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        MatCardModule,
-        HttpClientModule,
-        FlexLayoutModule,
-        FormsModule,
-        MatButtonModule,
-        MatFormFieldModule,
-        MatInputModule,
-        MatSlideToggleModule,
-        MatIconModule,
-        MatChipsModule,
-        MatAutocompleteModule,
-        ReactiveFormsModule,
-        MatMenuModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    HttpClientModule,
+    FlexLayoutModule,
+    FormsModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSlideToggleModule,
+    MatIconModule,
+    MatChipsModule,
+    MatAutocompleteModule,
+    ReactiveFormsModule,
+    MatMenuModule,
+    SplitterModule
+  ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })

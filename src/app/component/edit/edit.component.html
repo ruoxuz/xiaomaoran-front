@@ -1,66 +1,76 @@
 <div class="container h-100">
-  <div class="row margin-top">
-    <div fxFlex="50%">
-      <mat-form-field fxFlex="100%" appearance="fill">
-        <mat-label>Title</mat-label>
-        <input matInput placeholder="Ex. Title" [(ngModel)]="title" required>
-      </mat-form-field>
+  <div class="row margin-top mb-5">
+    <div class="col-md-9 form-group mb-2" data-aos="fade-up">
+      <input type="text" [(ngModel)]="title" class="form-control" placeholder="Title" required>
     </div>
-    <div fxFlex="30%">
-      <mat-form-field fxFlex="100%" appearance="fill">
-        <mat-label>Attribute</mat-label>
-        <mat-chip-list #tagList>
-          <mat-chip *ngFor="let tag of tags" [removable]="removable" (removed)="removeTag(tag)">
-            {{tag.name}}
-            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
-          </mat-chip>
-          <input placeholder="New tag..."
-                 [formControl]="tagCtrl"
-                 [matAutocomplete]="auto"
-                 [matChipInputFor]="tagList"
-                 [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-                 [matChipInputAddOnBlur]="addOnBlur"
-                 (matChipInputTokenEnd)="addTag($event)">
-        </mat-chip-list>
-        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
-          <mat-option *ngFor="let tag of filteredTags | async" [value]="tag">
-            {{tag}}
-          </mat-option>
-        </mat-autocomplete>
-      </mat-form-field>
+    <div class="col-md-3 mt-0 form-group" data-aos="fade-up">
+      <input type="button" class="readmore d-block w-100" value="提交" (click)="saveArticle()">
     </div>
-    <div fxLayoutAlign="space-around" fxFlex="20%">
-      <mat-slide-toggle [(ngModel)]="personal">公开：{{personal}}</mat-slide-toggle>
-      <div>
-        <button mat-raised-button color="primary" (click)="saveArticle()">Submit</button>
-      </div>
-    </div>
+    <!--    <div fxFlex="50%">-->
+<!--      <mat-form-field fxFlex="100%" appearance="fill">-->
+<!--        <mat-label>Title</mat-label>-->
+<!--        <input matInput placeholder="Ex. Title" [(ngModel)]="title" required>-->
+<!--      </mat-form-field>-->
+<!--    </div>-->
+<!--    <div fxFlex="30%">-->
+<!--      <mat-form-field fxFlex="100%" appearance="fill">-->
+<!--        <mat-label>Attribute</mat-label>-->
+<!--        <mat-chip-list #tagList>-->
+<!--          <mat-chip *ngFor="let tag of tags" [removable]="removable" (removed)="removeTag(tag)">-->
+<!--            {{tag.name}}-->
+<!--            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>-->
+<!--          </mat-chip>-->
+<!--          <input placeholder="New tag..."-->
+<!--                 [formControl]="tagCtrl"-->
+<!--                 [matAutocomplete]="auto"-->
+<!--                 [matChipInputFor]="tagList"-->
+<!--                 [matChipInputSeparatorKeyCodes]="separatorKeysCodes"-->
+<!--                 [matChipInputAddOnBlur]="addOnBlur"-->
+<!--                 (matChipInputTokenEnd)="addTag($event)">-->
+<!--        </mat-chip-list>-->
+<!--        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">-->
+<!--          <mat-option *ngFor="let tag of filteredTags | async" [value]="tag">-->
+<!--            {{tag}}-->
+<!--          </mat-option>-->
+<!--        </mat-autocomplete>-->
+<!--      </mat-form-field>-->
+<!--    </div>-->
+<!--    <div fxLayoutAlign="space-around" fxFlex="20%">-->
+<!--      <mat-slide-toggle [(ngModel)]="personal">公开：{{personal}}</mat-slide-toggle>-->
+<!--      <div>-->
+<!--        <button mat-raised-button color="primary" (click)="saveArticle()">Submit</button>-->
+<!--      </div>-->
+<!--    </div>-->
   </div>
-  <div id="content" class="row">
-    <p-splitter [style]="{'height': '300px'}" layout="vertical">
+  <div id="content" class="row h-75" data-aos="fade-up">
+    <p-splitter [style]="{'height': '100%'}" [layout]="width >= 768 ? 'horizontal' : 'vertical'">
       <ng-template pTemplate>
-        Panel 1
-      </ng-template>
-      <ng-template pTemplate>
-        Panel 2
-      </ng-template>
-    </p-splitter>
-    <div class="col-12 col-lg-6">
-      <div class="p-2 h-100" style="background-color: #0a53be">
-        <h3 class="text-white mb-2">MARKDOWN</h3>
-        <div id="editor" class="h-95">
+        <div id="editor" class="h-100 w-100">
           <textarea [(ngModel)]="content" id="textarea" required="required"></textarea>
         </div>
-      </div>
-    </div>
-    <div class="col-12 col-lg-6">
-      <div class="p-2 h-100" style="background-color: #0a53be">
-        <h3 class="text-white mb-2">PREVIEW</h3>
-        <div id="previewer" class="h-95" style="background-color: white">
+      </ng-template>
+      <ng-template pTemplate>
+        <div id="previewer" class="h-100 w-100" style="background-color: white">
           <div [innerHTML]="content | marked"></div>
         </div>
-      </div>
-    </div>
+      </ng-template>
+    </p-splitter>
+<!--    <div class="col-12 col-lg-6">-->
+<!--      <div class="p-2 h-100" style="background-color: #0a53be">-->
+<!--        <h3 class="text-white mb-2">MARKDOWN</h3>-->
+<!--        <div id="editor" class="h-95">-->
+<!--          <textarea [(ngModel)]="content" id="textarea" required="required"></textarea>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="col-12 col-lg-6">-->
+<!--      <div class="p-2 h-100" style="background-color: #0a53be">-->
+<!--        <h3 class="text-white mb-2">PREVIEW</h3>-->
+<!--        <div id="previewer" class="h-95" style="background-color: white">-->
+<!--          <div [innerHTML]="content | marked"></div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
   </div>
 </div>
 
