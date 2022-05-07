@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './component/login/login.component';
 import { EditComponent } from './component/edit/edit.component';
-import { ArticleComponent } from './component/article/article.component';
+import { ArticleListComponent } from './component/article-list/article-list.component';
 import { IndexComponent } from './component/index/index.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './component/header/header.component';
@@ -34,7 +34,7 @@ import { ContactComponent } from './component/contact/contact.component';
     AppComponent,
     LoginComponent,
     EditComponent,
-    ArticleComponent,
+    ArticleListComponent,
     IndexComponent,
     HeaderComponent,
     FooterComponent,

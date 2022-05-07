@@ -5,10 +5,10 @@ import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-article',
-  templateUrl: './article.component.html',
-  styleUrls: ['./article.component.css']
+  templateUrl: './article-list.component.html',
+  styleUrls: ['./article-list.component.css']
 })
-export class ArticleComponent implements OnInit {
+export class ArticleListComponent implements OnInit {
   article!: Article;
 
   constructor(

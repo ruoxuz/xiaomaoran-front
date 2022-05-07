@@ -1,5 +1,5 @@
-<div id="container" fxLayout="column">
-  <div class="margin-top">
+<div class="container h-100">
+  <div class="row margin-top">
     <div fxFlex="50%">
       <mat-form-field fxFlex="100%" appearance="fill">
         <mat-label>Title</mat-label>
@@ -36,15 +36,29 @@
       </div>
     </div>
   </div>
-  <div id="content" fxLayout="row">
-    <div fxFlex="50%" fxLayoutAlign="center">
-      <div id="editor" fxFlex="90%">
-        <textarea [(ngModel)]="content" id="textarea" required="required"></textarea>
+  <div id="content" class="row">
+    <p-splitter [style]="{'height': '300px'}" layout="vertical">
+      <ng-template pTemplate>
+        Panel 1
+      </ng-template>
+      <ng-template pTemplate>
+        Panel 2
+      </ng-template>
+    </p-splitter>
+    <div class="col-12 col-lg-6">
+      <div class="p-2 h-100" style="background-color: #0a53be">
+        <h3 class="text-white mb-2">MARKDOWN</h3>
+        <div id="editor" class="h-95">
+          <textarea [(ngModel)]="content" id="textarea" required="required"></textarea>
+        </div>
       </div>
     </div>
-    <div fxFlex="50%" fxLayoutAlign="center">
-      <div id="previewer" fxFlex="90%">
-        <div [innerHTML]="content | marked" style="padding: 10px"></div>
+    <div class="col-12 col-lg-6">
+      <div class="p-2 h-100" style="background-color: #0a53be">
+        <h3 class="text-white mb-2">PREVIEW</h3>
+        <div id="previewer" class="h-95" style="background-color: white">
+          <div [innerHTML]="content | marked"></div>
+        </div>
       </div>
     </div>
   </div>
